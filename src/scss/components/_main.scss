@@ -1,0 +1,136 @@
+@use "sass:color";
+@use "../var" as *;
+
+.take-idea {
+  &-section {
+    padding: 6rem 0 9rem;
+  }
+
+  .row {
+
+    > * {
+      padding: 0 1rem;
+    }
+  }
+
+  &-title {
+    margin: 0 0 1.6rem;
+  }
+
+  &-text {
+    margin: 0 0 3.2rem;
+  }
+
+  &-form {
+    input {
+      padding: 1.2rem 2.5rem 1.4rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      border: 1px solid $inputBorder;
+      border-radius: 32px;
+      height: 48px;
+
+      color: $deepIndigo;
+      font-size: 1.8rem;
+
+      &.is-invalid {
+        border-color: red;
+      }
+
+      &:focus {
+        border-color: color.adjust($inputBorder, $lightness: -50%);
+      }
+
+      &::placeholder {
+        color: $inputBorder;
+        opacity: 1;
+      }
+    }
+
+    &-text {
+      margin: 7px 0 0;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.42857;
+      color:rgba($deepIndigo, 0.4)
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.success-message {
+  text-align: center;
+  font-size: 2.4rem;
+  color: green;
+}
+
+.collaborate-section {
+  padding: 3rem 0 8rem;
+}
+
+.collaborate-title {
+  position: relative;
+  margin: 0 auto 12px;
+  max-width: 448px;
+
+  text-align: center;
+
+  .collaborate-idea {
+    position: absolute;
+    top: 0;
+    right: -66px;
+    transform-origin: top center;
+    transform: rotate(10deg);
+
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(5, 0, 56, 0.08);
+  }
+}
+
+.collaborate-item {
+  padding: 2.3rem 3.3rem;
+}
+
+.collaborate-item h3 {
+  margin: 0 0 2.9rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.16667;
+  letter-spacing: -0.02em;
+  color: $deepIndigo;
+}
+
+.collaborate-item p {
+  color: rgba($deepIndigo, 0.6);
+}
+
+@media all and (max-width: 767px) {
+  .take-idea-section {
+    text-align: center;
+  }
+
+  .collaborate {
+    &-item {
+      text-align: center;
+    }
+  }
+
+  .collaborate-title
+  {
+    .collaborate-idea {
+      right: 0;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .collaborate-item {
+    padding: 2rem 1rem;
+  }
+}

@@ -1,0 +1,16 @@
+@use "../var" as *;
+
+.section-title {
+  font-family: Inter, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 1.16667;
+  letter-spacing: -0.02em;
+  color: $deepIndigo;
+}
+
+@media all and (max-width: 767px) {
+  .section-title {
+    font-size: 3.4rem;
+  }
+}

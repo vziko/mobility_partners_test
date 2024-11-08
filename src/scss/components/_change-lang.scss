@@ -1,0 +1,49 @@
+@use "../var" as *;
+
+.change-lang {
+  @extend %flexCenter;
+
+  .dropdown-toggle {
+    @extend %buttonNoStyles;
+
+    @extend %flexCenter;
+    gap: 0.8rem;
+
+    &:after {
+      content: none;
+    }
+
+    &.-white {
+      color: $white;
+
+      &:hover {
+        color: $goldenYellow;
+      }
+    }
+  }
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .dropdown-menu {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media all and (max-width: 991px) {
+  .change-lang {
+    .dropdown-menu {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      padding: 7px;
+      margin: 0 5px;
+      max-height: 170px;
+      box-shadow: 0 8px 32px 0 rgba(5, 0, 56, 0.2);
+    }
+  }
+}

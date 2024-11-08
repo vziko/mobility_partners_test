@@ -1,0 +1,12 @@
+@use "var" as *;
+
+@use "bootstrap/scss/bootstrap" as *;
+
+@forward "fonts";
+@forward "global";
+
+@forward "components/typography";
+@forward "components/header";
+@forward "components/footer";
+@forward "components/change-lang";
+@forward "components/main";

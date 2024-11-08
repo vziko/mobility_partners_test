@@ -1,0 +1,128 @@
+@use "sass:color";
+@use "../var" as *;
+
+.header {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
+
+.navbar {
+  --bs-navbar-padding-y: 2rem;
+  --bs-navbar-brand-margin-end: 2.4rem;
+  --bs-navbar-nav-link-padding-x: 0;
+
+  border-bottom: 1px solid #f0f0f0;
+  background: $white;
+
+  &-nav {
+    align-items: center;
+    gap: 1.6rem;
+    --bs-nav-link-padding-y: 0.4rem;
+  }
+}
+
+.nav-link {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: $deepIndigo;
+  font-family: Inter, Helvetica, sans-serif;
+
+  &.active,
+  &:hover {
+    color: $brightBlue;
+  }
+}
+
+.dropdown {
+  &-menu {
+    --bs-dropdown-font-size: 1.4rem;
+    --bs-dropdown-item-padding-x: 2rem;
+    --bs-dropdown-item-padding-y: 1rem;
+    --bs-dropdown-link-hover-bg: #{rgba($brightBlue, 0.2)};
+    --bs-dropdown-link-active-bg: #{$brightBlue};
+  }
+
+  &-toggle {
+    &:after {
+      margin-left: 0.8rem;
+      margin-right: 0.2rem;
+      vertical-align: 0.125em;
+      @include widthHeight(0.9rem);
+      border-top: none;
+      border-right: none;
+      border-bottom: 2px solid;
+      border-left: 2px solid;
+
+      transform: rotate(-45deg);
+    }
+
+    &.show {
+      &:after {
+        vertical-align: 0.0em;
+        transform: rotate(135deg);
+      }
+    }
+  }
+}
+
+.navbar-toggler {
+  padding: 0.5rem;
+
+  &-icon {
+    @include widthHeight(3rem);
+  }
+}
+
+@media all and (max-width: 991px) {
+  .header {
+    height: 70px;
+  }
+
+  .navbar {
+    &-collapse {
+      padding-top: 4rem;
+    }
+
+    &-nav {
+      align-items: flex-start;
+    }
+  }
+
+  .nav-item {
+
+   .dropdown-menu {
+     border: none;
+     padding: 0;
+     --bs-dropdown-item-padding-x: 1.5rem;
+     --bs-dropdown-item-padding-y: 0.7rem;
+   }
+
+    .dropdown-item {
+      text-align: center;
+    }
+  }
+
+  .btn {
+    &.header-sign {
+      padding: 0.4rem 0;
+      color: $brightBlue !important;
+      background: none !important;
+
+      &:after {
+        content: none;
+      }
+
+      &:hover {
+        color: $deepIndigo !important;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .header {
+    height: 83px;
+  }
+}

@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../assets/fonts/helvetica/Helvetica.eot');
+  src: url('../assets/fonts/helvetica/Helvetica.eot?#iefix') format('embedded-opentype'),
+  url('../assets/fonts/helvetica/Helvetica.woff2') format('woff2'),
+  url('../assets/fonts/helvetica/Helvetica.woff') format('woff'),
+  url('../assets/fonts/helvetica/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../assets/fonts/icomoon/icomoon.eot?6xs3ez');
+  src:  url('../assets/fonts/icomoon/icomoon.eot?6xs3ez#iefix') format('embedded-opentype'),
+  url('../assets/fonts/icomoon/icomoon.ttf?6xs3ez') format('truetype'),
+  url('../assets/fonts/icomoon/icomoon.woff?6xs3ez') format('woff'),
+  url('../assets/fonts/icomoon/icomoon.svg?6xs3ez#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\e900";
+}
+.icon-instagram:before {
+  content: "\e901";
+}
+.icon-lang:before {
+  content: "\e902";
+}
+.icon-linkedin:before {
+  content: "\e903";
+}
+.icon-twitter:before {
+  content: "\e904";
+}
+.icon-youtube:before {
+  content: "\e905";
+}

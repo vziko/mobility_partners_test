@@ -1,0 +1,62 @@
+@use "sass:color";
+
+$htmlFontSize: 10px;
+$htmlFontSize-sm: 8px;
+$htmlFontSize-xl: 12px;
+$headerWidth: 30.6rem;
+
+// Colors
+
+$deepIndigo: #050038;
+$brightBlue: #4262ff;
+$goldenYellow: #FFD02F;
+$white: #fff;
+$smokyLilac: #9b99af;
+$charcoalBlack: #090909;
+
+$textColor: rgba($deepIndigo, 0.72);
+$inputBorder: $smokyLilac;
+$btnЕextHover: $charcoalBlack;
+
+$colorLink: $brightBlue;
+$colorLinkHover: color.adjust($colorLink, $lightness: -12%);
+
+// mixins
+
+@mixin transition($property: all, $time: 0.3s, $function: ease) {
+  transition: $property $time $function;
+}
+
+@mixin widthHeight($value) {
+  width: $value;
+  height: $value;
+}
+
+%buttonNoStyles {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+}
+
+%listNoStyles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+%flexCenterX {
+  display: flex;
+  justify-content: center;
+}
+
+%flexCenterY {
+  display: flex;
+  align-items: center;
+}
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

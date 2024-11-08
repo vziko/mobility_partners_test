@@ -1,0 +1,145 @@
+@use "../var" as *;
+
+.footer {
+  padding: 4rem 0;
+  background-color: $deepIndigo;
+
+  .container-fluid {
+    padding: 0 5.8rem;
+  }
+
+  ._content {
+    @extend %flexCenterY;
+    justify-content: space-between;
+    gap: 2.4rem;
+  }
+
+  ._hr {
+    height: 1px;
+    width: 100%;
+    background: #9b99af;
+    margin-bottom: 4rem;
+  }
+
+  ._left {
+    @extend %flexCenterY;
+    gap: 2.4rem;
+  }
+
+  ._right {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    a {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.footer-social {
+  @extend %listNoStyles;
+  display: flex;
+  gap: 2.4rem;
+
+  a {
+    display: block;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: $white;
+
+    &:hover {
+      color: $goldenYellow;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+  }
+}
+
+.footer-nav {
+  @extend %flexCenter;
+  gap: 2.7rem;
+
+  .copy {
+    margin: 0;
+    color: $white;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  ul {
+    @extend %flexCenter;
+    @extend %listNoStyles;
+    gap: 3.2rem;
+
+    a {
+      color: $white;
+      font-size: 1.6rem;
+      line-height: 1.5;
+
+      &:hover {
+        color: $goldenYellow;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1365px) {
+  .footer {
+    ._content {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    ._right {
+      width: 100%;
+    }
+  }
+}
+
+@media all and (max-width: 991px) {
+  .footer {
+    .container-fluid {
+      padding: 0 3rem;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .footer {
+    ._left {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &-nav {
+      width: 100%;
+      flex-wrap: wrap;
+
+      .copy {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .footer {
+    &-social {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &-nav {
+      ul {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+    }
+  }
+}
