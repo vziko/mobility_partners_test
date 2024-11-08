@@ -1,0 +1,45 @@
+{
+  "name": "mobility_partners_test",
+  "version": "1.0.0",
+  "description": "This is a test task",
+  "main": "src/js/main.js",
+  "scripts": {
+    "watch": "webpack server --mode development",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vziko/-mobility_partners_test.git"
+  },
+  "author": "vzikooo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vziko/-mobility_partners_test/issues"
+  },
+  "homepage": "https://github.com/vziko/-mobility_partners_test#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "filemanager-webpack-plugin": "^8.0.0",
+    "html-webpack-injector": "^1.1.4",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.0.9",
+    "sass": "^1.76.0",
+    "sass-loader": "^16.0.3",
+    "style-loader": "^4.0.0",
+    "underscore-template-loader": "^1.2.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
+  }
+}
