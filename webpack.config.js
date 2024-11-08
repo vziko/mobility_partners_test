@@ -23,7 +23,6 @@ module.exports = (env, ...opts) => {
 			path: dist,
 			filename: './js/[name].js?h=[chunkhash]',
 			assetModuleFilename: path.join('[name].[ext]'),
-			publicPath: '/'
 		},
 		devServer: {
 			static: {
