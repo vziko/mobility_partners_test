@@ -1,4 +1,4 @@
-function FormHandler(form, success) {
+function FormHandler(form) {
 	this.form = form;
 	this.inputLists = [];
 	this.validators = {};
@@ -20,7 +20,9 @@ function FormHandler(form, success) {
 					input,
 					isRequired: input.required,
 					validationType: input.dataset.validationType,
-					isValid: !(input.required || input.dataset.validationType),
+					get isValid() {
+						return !(this.isRequired || this.validationType)
+					},
 					errorElement: errorMessage,
 				});
 			}
@@ -38,8 +40,6 @@ function FormHandler(form, success) {
 		let correctInputCounter = 0;
 
 		this.inputLists.forEach((element) => {
-			console.log(element.isRequired);
-
 			if(element.validationType) {
 				this.checkValidationType(element) && correctInputCounter++;
 			} else if(element.isRequired) {
