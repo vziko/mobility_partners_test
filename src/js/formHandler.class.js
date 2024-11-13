@@ -1,29 +1,32 @@
-function FormHandler(form, option = {}) {
-	this.form = form;
-	this.option = option;
-	this.inputLists = [];
-	this.validators = {};
-	this.onAfterSubmit = () => {};
+class FormHandler {
+	constructor(form, option = {}) {
+		this.form = form;
+		this.option = option;
+		this.inputLists = [];
+		this.validators = {};
+		this.onAfterSubmit = () => {};
+		this.init();
+	}
 
-	this.init = () => {
+	init() {
 		this.form.setAttribute('novalidate', true);
 		this.createInputsList();
 		this.events();
 
-		const defaultValidators = {
+		this.validators = {
+			...this.defaultValidators,
+			...this.option.validators
+		}
+	}
+
+	get defaultValidators() {
+		return {
 			email: this.emailValidator.bind(this),
 			phone: this.phoneValidator.bind(this),
 		};
-
-		this.validators = {
-			...defaultValidators,
-			...this.option.validators
-		}
-
-		console.log('this.validators =>', this.validators);
 	}
 
-	this.createInputsList = () => {
+	createInputsList() {
 		Array.from(this.form.elements).forEach(input => {
 			if (input.tagName.toLowerCase() === 'input' && input.name) {
 
@@ -43,13 +46,13 @@ function FormHandler(form, option = {}) {
 		});
 	}
 
-	this.events = () => {
+	events() {
 		this.form.addEventListener('submit', this.submit.bind(this));
 	}
 
-	this.submit = e => {
-		e.preventDefault();
-		e.stopPropagation();
+	submit(event){
+		event.preventDefault();
+		event.stopPropagation();
 
 		let correctInputCounter = 0;
 
@@ -68,7 +71,7 @@ function FormHandler(form, option = {}) {
 		}
 	}
 
-	this.checkValidation = element => {
+	checkValidation(element) {
 		if (this.validationRequired(element)) {
 			if (this.validators[element.validationType]) {
 				const validationResult = this.validators[element.validationType](element.input.value);
@@ -82,7 +85,7 @@ function FormHandler(form, option = {}) {
 		}
 	}
 
-	this.validationRequired = element => {
+	validationRequired(element) {
 		const validationResult = {
 			isValid: element.input.value.trim() !== '',
 			errorMessage: 'This field is required.',
@@ -90,7 +93,7 @@ function FormHandler(form, option = {}) {
 		return this.checkError(element, validationResult);
 	}
 
-	this.emailValidator = value => {
+	emailValidator(value) {
 		return {
 			isValid: String(value)
 				.toLowerCase()
@@ -101,14 +104,14 @@ function FormHandler(form, option = {}) {
 		}
 	}
 
-	this.phoneValidator = value => {
+	phoneValidator(value) {
 		return {
 			isValid: value.length === 13, // Todo Switch to proper validation
 			errorMessage: 'Please enter a valid phone number.',
 		}
 	}
 
-	this.checkError = (element, {isValid, errorMessage}) => {
+	checkError(element, {isValid, errorMessage}) {
 		if(!isValid) {
 			this.addError(element, errorMessage);
 			return false;
@@ -118,26 +121,24 @@ function FormHandler(form, option = {}) {
 		}
 	}
 
-	this.addError = (element, errorMessage) => {
+	addError(element, errorMessage) {
 		element.input.classList.add('is-invalid');
 		element.errorElement.textContent = errorMessage;
 		element.input.after(element.errorElement)
 	}
 
-	this.removeError = element => {
+	removeError(element) {
 		element.input.classList.remove('is-invalid');
 		element.errorElement.remove();
 	}
 
-	this.successValidation = () => {
+	successValidation () {
 		this.onAfterSubmit();
 	}
 
-	this.afterSubmit = callback => {
+	afterSubmit(callback) {
 		this.onAfterSubmit = callback;
 	}
-
-	this.init();
 }
 
 export { FormHandler };
